@@ -347,8 +347,4 @@ Some command can be both blocking and non-blocking, depending on the options you
 
 ---
 
-## Combining Commands
-
----
-
 ## Summary

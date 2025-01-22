@@ -1,254 +1,553 @@
 ---
 theme: css/dracula.css
+highlightTheme: css/rose-pine-moon.css
 transition: slide
 duration: 1h
-classSize: ~50
+classSize: ~102
 width: 1920
 height: 1280
-minScale: 0.1
+minScale: -3
 timeForPresentation: 3600
 progress: true
 navigationMode: default
 view: scroll
 center: false
-
+embedded: "true"
 ---
 
 # CSC1063
 Managing Enterprise Computer Systems
 
-**Week 2: Starting Up**
+**Week 2: Viewing Files, Text Editors, and Shell Scripts**
 
 ---
 
 ## Today's Agenda
 
-1. Basic System Management
-2. File Handling
-3. Scripting Basics
+1) Getting help with commands
+2) Text files
+3) Shell scripts
 
 ---
-## Recap: Last Week
 
-- Introduction to Unix:
-    - History and significance.
-    - Our lab environment: Ubuntu (Linux).
-- Terminology:
-    - Terminals, shells, processes.
-    - Command-line interface (CLI).
-- File System Navigation
-    - Basic commands: `ls`, `cd`, `pwd`.
-    - Absolute and relative paths.
+## Q/A from Last Week
 
----
-## Basic System Management
+[Feedback + Questions Form](https://loop.dcu.ie/course/view.php?id=68391&section=1)
 
-- **Package Management**:
-    - Installing, updating, removing packages.
-    - Checking installed packages.
-- **Disk Usage**:
-    - Checking disk space.
-- **Configurations**:
-    - Environment variables.
-    - Configuration files.
+--
+
+**Group Project**:
+
+- You can choose your own groups [Here](https://loop.dcu.ie/mod/choicegroup/view.php?id=2580811)
+- Deadline: Reading Week
+
+--
+
+**Work from Home:**
+- I recommend attending the labs for the first few weeks.
+- If you have trouble submitting at home, I won't be able to help you.
+
+--
+
+## **Please ask questions!**
 
 ---
-### Package Management
 
-- **Purpose**: Download, install, and manage software packages.
-- **Tools**:
-    - `apt` (Debian, Ubuntu) or `apt-get` (older versions)
-    - `yum` (Red Hat, CentOS)
-    - `dnf` (Fedora)
-    - `brew` (macOS)
-- **Commands**:
-    - `install`, `remove`, `update`, `upgrade`
+## Getting Help with Commands
+
+--
+
+`whatis`: one-line description of a command.
+
+--
+
+```sh
+$ whatis echo
+echo (1)     - display a line of text
+```
+
+--
+
+```bash[1-2|4-5]
+$ echo hello
+hello
+
+$ echo hello, world!
+hello, world!
+```
+
+--
+
+`help`: a more detailed description
+
+--
+
+```sh
+$ help echo
+```
+
+--
+
+```sh
+$ help echo
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+--
+
+```sh
+$ echo -n "Hello, "
+Hello, $
+```
+
+--
+
+`--help`: flag to get help on a command.
+
+--
+```sh
+$ cat --help
+```
+--
+
+```sh
+$ cat --help
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+--
+
+```sh
+$ cat file.txt
+
+$ cat -n file.txt
+
+$ cat file1.txt file2.txt
+```
+
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="500"></iframe>
+
+--
+
+`man`: manual pages for commands.
+
+--
+
+```sh
+$ man less
+```
+--
+
+```sh
+$ man less
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+--
+
+`apropos`: search for commands.
+
+
+--
+
+```sh
+$ apropos copy
+```
+--
+```sh
+$ apropos copy
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+
+
+---
+
+### Help commands
+- `whatis`: one-line description of a command.
+- `help`: a more detailed description.
+- `--help`: flag to get help on a command.
+- `man`: manual pages for commands.
+- `apropos`: search for commands.
+
+--
+
+### New Commands
+
+```sh[1-2|3-4|5-6]
+$ whatis echo
+echo (1)     - display a line of text
+$ whatis cat
+cat (1)      - concatenate files and print on the standard output
+$ whatis less
+less (1)     - opposite of more
+```
+
+---
+
+### More Tips
+
+Use longer paths instead of `cd` multiple times.
+
+```sh[1-3|5]
+$ cd ~
+$ cd csc1063
+$ cd Documents
+
+$ cd ~/csc1063/Documents
+```
+
+--
+
+Same with `cp`, `mv`
+
+```sh
+$ cp ~/csc1063/Documents/file.txt ~/csc1063/Documents/Backup/
+
+$ cp file.txt ../Backup/
+
+$ cp ../Documents/file.txt ./
+```
+
+--
+
+Use  ` Tab `  for auto-completion.
+
+---
+
+## Text Files
+
+--
+
+**Plain Text**
+
+not: Microsoft Word, PDF, etc.
+
+--
+
+Examples:
+- Configuration files
+- Scripts
+
+--
+
+### Viewing Text File
+
+- `cat`: concatenate and display file contents.
+- `less`: view file contents page by page.
+
+--
+
+#### `/etc/passwd`: User Account Information
+
+--
+
+```sh
+$ cat /etc/passwd
+```
+--
+
+```sh
+$ cat /etc/passwd
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+--
+
+```sh
+$ less /etc/passwd
+```
+--
+
+```sh
+$ less /etc/passwd
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+---
+
+`grep`: search for text in files.
+
+```sh[1|2]
+$ grep <pattern> <filename>
+$ grep allie /etc/passwd
+```
+
+--
+```sh
+$ grep allie /etc/passwd
+```
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="800"></iframe>
+
+---
+
+### Text Editors
+
+
+---
+
+**Graphical Editors**:
++ gedit, kate, vscode
+
+**CLI Editors**:
++ nano, vim, emacs
+
+---
+
+### Nano
+
+- Simple and easy to use.
+- Beginner-friendly.
+
+--
+
+```sh
+$ nano file.txt
+```
+
+--
+
+![Open Nano|1900](https://media.geeksforgeeks.org/wp-content/uploads/20200304140712/cutpaste.gif)
+
+--
+
+### Vim
+
+- Powerful and efficient.
+- Steeper learning curve.
+
+--
+
+![POV|1800](https://preview.redd.it/i-have-been-using-vim-for-the-past-2-years-not-because-i-v0-ud43pn6gn52b1.png?auto=webp&s=15ec594a315087222f5ae74b458a8e59a76c0d18)
+
+--
+
+![How to Exit Vim|1900](https://miro.medium.com/v2/resize:fit:652/1*6_ayWFq8lJ-fafpeiafiBg.png)
+
+--
+
+```sh
+$ vim file.txt
+```
+
+--
+
+To **exit**:
+
+- Press `Esc`
+- Type `:q!` (force quit) or `:wq` (write and quit)
+- Press `Enter`
+
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="500"></iframe>
+
+---
+
+## Questions
+[Vevox](https://dcu.vevox.com/#/present/696845)
+
+---
+
+## Shell Scripts
 
 Note:
-Now that's you've set up your system, you might want to install additional software. Package managers are tools that help you download, install, and manage software packages. They handle dependencies, updates, and removals, making it easier to manage software on your system.
+The shell doesn't just run commands interactively. It can also read commands from a file (a **shell script**) and execute them sequentially.
 
-Some common package managers include apt (used in Debian and Ubuntu), yum (used in Red Hat and CentOS), dnf (used in Fedora), and brew (used in macOS). These package managers have commands like install, remove, update, and upgrade that you can use to manage software packages.
+It can be used to automate repetitive tasks, create custom commands, and more.
 
 --
 
-#### Installing Software (apt)
+A text file containing a sequence of commands.
 
-- First update the package list:
+--
+
+filename: `hello.sh` (ends with `.sh`)
 ```sh
-$ sudo apt update
+#!/bin/sh
+
+# This is a comment
+echo hello
 ```
-- Install a package:
+--
+
+**Running Scripts**:
+
+Use `sh <script filename>`
 ```sh
-$ sudo apt install [package]
+$ sh hello.sh
+hello
 ```
-- Remove a package:
+
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="500"></iframe>
+
+--
+
+**Comments**:
+- Lines that are not executed.
+- Start with `#`.
+
+`hello.sh`:
+```sh[1]
+#!/bin/sh
+
+# This is a comment
+echo hello # also a comment
+```
+
+--
+
+**Shebang Line**:
+
+- The first line of a script.
+- Starts with `#!`.
+- Tells the system which shell to use.
+
 ```sh
-$ sudo apt remove [package]
+#!/bin/sh
 ```
-- Upgrade (to latest versions):
-```sh
-$ sudo apt upgrade [package]
-$ sudo apt upgrade # All packages
+--
+
+Same language as the shell.
+
+--
+
+A slightly longer script:
+
+`longer.sh`:
+```sh[1|3|5-8|9-11|13-14]
+#!/bin/sh
+
+cd ~ # Change to the home directory
+
+# Print the current directory
+echo "The current directory is:"
+pwd
+
+# List the contents of the current directory
+echo "The contents of the current directory are:"
+ls
+
+# Say goodbye
+echo "Goodbye!"
 ```
+
+--
+
+<iframe data-src="http://localhost:8080" title="Terminal" width="1920" height="1000"></iframe>
+
+---
+
+## Variables
+
+Store data for later use.
 
 Note:
-To install software using apt, you first need to update the package list with sudo apt update. This ensures you have the latest information about available packages. Then you can install a package with sudo apt install [package]. To remove a package, use sudo apt remove [package]. To upgrade a package to the latest version, use sudo apt upgrade [package]. If you want to upgrade all packages, use sudo apt upgrade without specifying a package.
-
-Note that you need to use sudo to run these commands with administrative privileges. This is because installing and removing software affects the system and requires special permissions.
-- **apt** (Debian/Ubuntu):
-    - `apt install <package>`
-    - `apt update`
-    - `apt upgrade`
-    - `apt remove <package>`
-- **yum** (Red Hat/CentOS):
+Similar to other programming languages, we can use **variables** in shell scripts to store values. Let's look at an example:
 
 --
 
-#### Checking Installed Packages
+```sh[4|7]
+#!/bin/sh
 
-- `which`: Find the location of a command.
-- `type`: Determine a command's type.
+# Assign a value to a variable
+name="Allie"
+
+# Print the value of the variable
+echo "Hello, $name!"
+```
+
+Output: `Hello, Allie!`
+
+--
+```sh[4|7]
+#!/bin/sh
+
+# Assign a value to a variable
+name="Allie"
+
+# Print the value of the variable
+echo "Hello, $name!"
+```
+**Rules**:
++ No spaces around `=`.
++ No ` $ ` when assigning a value.
++ Use ` $ ` to access the value.
+
+--
+
+**Example**:
+
+```sh[4|7|10]
+#!/bin/sh
+
+# Assign a value to a variable
+to_remove="file.txt"
+
+# Make a backup of the file
+cp $to_remove $to_remove.bak
+
+# Remove the file
+rm $to_remove
+```
+
+--
+
+**Variables** are **text**
 
 ```sh
-$ which ls
-/bin/ls
-$ type ls
-ls is /bin/ls
+$ number=5
+$ number="5"
+```
+
+--
+
+**Empty Variables** (unset):
+
+```sh
+echo $a_random_variable
+```
+The output is empty.
+
+--
+
+**Unsetting Variables**:
+
+```sh
+$ unset a_random_variable
 ```
 
 ---
 
-### Disk Usage
-
-+ **Scenario**: You are about to install a large software package. How do you check if you have enough disk space?
-+ Check the total, used, and available space on your disk.
-    - `df`(*d*isk *f*ree)
-    - Example: `df -h` (human-readable format)
-
---
-### Disk Usage (contd.)
-
-+ **Scenario**: You can't install a package because your disk is full. How do you find large files or directories to delete?
-+ Check the disk usage of files and directories.
-    - `du`(*d*isk *u*sage) - works recursively.
-    - Example: `du -sh /path/to/dir` (total disk usage of a directory)
-    - Example: `du -ah /path/to/dir` (disk usage of all files in a directory)
+# CSC1063: Lab Demo
 
 ---
 
-### Configurations
 
-System-wide settings and configurations are stored in:
-- Environment Variables
-- Configuration Files
+### Configure nano
 
---
-
-#### Environment Variables
-
-- **Purpose**: Store system-wide settings.
-- **Common Variables**:
-    - `EDITOR`: Default text editor.
-    - `PATH`: Directories to search for executables.
-    - `HOME`: User's home directory.
-- To see a variable's value: `echo`, `printenv`.
-    - `echo $HOME`
-    - `printenv PATH`
-- To modify a variable: `export`, `unset`.
-    - `export EDITOR=nano` (temporary)
-    - `unset EDITOR`
-
---
-
-### Configuration Files
-
-- **Purpose**: Store system and application settings.
-- **Locations**:
-    - System-wide: `/etc`
-    - User-specific: `~/.config`, or home directory.
-    - Application-specific: `~/.appname`
-- **Examples**:
-    - Shell configuration: `~/.bashrc`
-    - Text editor settings: `~/.vimrc`, `~/.nanorc`
-    - SSH configuration: `~/.ssh/config`
-
-Instead of `export`, which is temporary for the current session, you can add these variables to your shell configuration file (e.g., `~/.bashrc`) to make them persistent across sessions.
-
---
-
-### My .bashrc
+Open the `.nanorc` file in your home directory.
 
 ```sh
-# Set vim as the default editor
-export EDITOR=vim
-
-# Add Einstein to the PATH
-export PATH=$PATH:~/Downloads/einstein
-
-# Set the default prompt
-PS1="\u@\h:\w\$ "
+$ nano ~/.nanorc
 ```
 
 --
 
-### SSH Configuration
-If you frequently connect to a remote server:
-```sh
-$ ssh [username]@student.computing.dcu.ie
-```
-You can create an SSH configuration file to simplify this:
+Add the following lines:
+
 ```plaintext
-# ~/.ssh/config
-Host SoC
-    HostName student.computing.dcu.ie
-    User [username]
-    Port 22
-```
-Now you can connect with:
-```sh
-$ ssh SoC
+include "/usr/share/nano/*.nanorc"
+
+set linenumbers
+set tabsize 4
+set tabstospaces
+set autoindent
+set mouse
 ```
 
----
-
-## File Handling
-
-- **Downloading Files**:
-    - `wget`, `curl`
-- **Searching for Files**:
-    - `find`, `locate`
-- **Opening and Editing Files**:
-    - `nano`, `vim`
-- **Outputting File Contents**:
-    - `echo`, `cat`
-
----
-
-### Downloading Files
-
-- **wget**: Download files from the web (and save to disk).
-    - `wget [URL]`
-    - `wget -O [filename] [URL]` (save as a different filename)
-- **curl**: Transfer data with URLs (and display on terminal).
-    - `curl [URL]`
-    - `curl -o [filename] [URL]` (save as a file)
-
-You may need to install `wget` or `curl` if they are not already available on your system.
-If this is the case, you'd see an error message like "Command not found".
-
-```sh
-$ curl https://example.com/file.text
-bash: curl: command not found
-$ sudo apt install curl
-```
-
-Again you need to use `sudo` to install software packages.
 
 ---
 
 ### Searching for Files
-
->**Scenario**: You downloaded a file yesterday but can't remember where you saved it. How do you find it?
 
 **The `find` utility**: Search for files in a directory hierarchy.
 
@@ -279,8 +578,8 @@ $ find ~ -type f
 # Output a list of just the directories in or under your home directory.
 $ find ~ -type d
 
-# Output a list of all of your downloaded files.
-$ find ~/Downloads -type f
+# Output a list of all the files in csc1063
+$ find ~/csc1063 -type f
 ```
 
 --
@@ -339,7 +638,7 @@ ls -l *.pdf
 # List all PDF files which filename has 2 Characters.
 ls -l ??.pdf
 
-# List all PDF files with certain patter.
+# List all PDF files with certain pattern.
 ls -l a[a,b]a.pdf
 ls -l a[!c]a.pdf
 
@@ -347,154 +646,57 @@ ls -l a[!c]a.pdf
 grep function *.js
 ```
 
---
-
-#### Examples
-
-- `ls *.txt`: List all text files in the current directory.
-- `ls file?.txt`: List files like `file1.txt`, `file2.txt`, etc.
-- `ls file[1-3].txt`: List files like `file1.txt`, `file2.txt`, `file3.txt`.
-- `find /path/to/dir -name "file*.txt"`: Find all text files starting with "file".
-
 ---
 
-### Opening and Editing Files
+### Searching for Text in Files
 
-- **nano**: Simple text editor.
-    - `nano [filename]`
-    - `Ctrl + O` (save), `Ctrl + X` (exit)
-- **vim**: Advanced text editor.
-    - `vim [filename]`
-    - `i` (insert mode), `Esc` (command mode)
-    - `:wq` (save and exit), `:q!` (exit without saving)
-    - `:help` (help)
+**The `grep` utility**: Search for text in files.
 
-I use `vim` for most of my editing tasks, but `nano` is easier for beginners.
+```sh
+$ grep [OPTIONS] PATTERN [FILE...]
+```
 
----
-
-### Outputting File Contents
-
-- **echo**: Print a line of text.
-    - `echo "Hello, World!"`
-    - `echo $HOME`
-- **cat**: Concatenate and display files.
-    - `cat [filename]`
-    - `cat file1 file2 > combined.txt` (combine files)
-
----
-
-### File Handling Commands
-
-- **mv**: Move files and directories.
-    - `mv [source] [destination]`
-    - `mv file1.txt /path/to/dir`
-- **cp**: Copy files and directories.
-    - `cp [source] [destination]`
-    - `cp file1.txt /path/to/dir`
-- **rm**: Remove files and directories.
-    - `rm [filename]`
-    - `rm -r [directory]` (recursive)
-- Used with wildcards for multiple files.
-    - `mv *.txt /path/to/dir` (move all text files)
-    - `cp *.txt /path/to/dir` (copy all text files)
-    - `rm *.txt` (remove all text files)
-
----
-
-## Scripting Basics
+Where:
+- `OPTIONS`: flags to modify the search.
+- `PATTERN`: the text to search for.
+- `FILE...`: the files to search in.
 
 --
 
-The shell doesn't just run commands interactively. It can also read commands from a file (a **shell script**) and execute them sequentially.
-
-It can be used to automate repetitive tasks, create custom commands, and more.
-
----
-
-### Shell Scripts
-
-- A **text file** containing a sequence of commands.
-- Named with a `.sh` extension (convention, not required).
-- Begin with a **shebang line**:
-    - `#!/bin/sh` (use the `sh` shell)
-    - `#!/bin/bash` (use the `bash` shell)
+**Examples**:
 
 ```sh
-#!/bin/sh
-echo "Hi! I'm in a shell script."
-```
+# Output all lines from the file "messages.txt" which contain the text "hello".
+$ grep hello messages.txt
 
----
-
-### Running Scripts
-In the terminal, you can run a script using the `sh` command: `sh script.sh`.
-
-Or you can make the script **executable** and run it directly:
-```sh
-$ chmod +x script.sh
-$ ./script.sh
-```
-
-**Note**: You only need to make a script executable once.
-
---
-
-#### Example: Update Script
-
-We can create a file `update.sh` with a text editor (like `nano` or `vim`) and add the following commands:
-
-```sh[]
-#!/bin/sh
-sudo apt updates
-sudo apt upgrade
-```
-
-So when you run `sh update.sh`, it will first identify the shell to use, then sequentially run the commands in the script: line 2 **then** line 3.
-
--- 
-
-#### Comments
-
-- **Comments**: Lines that are not executed.
-- **Purpose**: Document scripts for yourself and others.
-- **Syntax**: start with `#`.
-
-```sh
-#!/bin/sh
-
-# This is a comment
-echo "Hello, World!" # also a comment
+# Output all lines from the three JavaScript files which contain the text "function".
+$ grep function file1.js file2.js file3.js
 ```
 
 --
 
-#### Adding scripts to PATH
+**Common Options**:
 
-Remember when you run `script.sh`, you need to be in the same directory as the script (or provide the full path).
-
-> If you have a script you use frequently, you can add it to your `PATH` so you can run it from anywhere.
-
-`PATH` is an environment variable (that we discussed earlier) containing directories to search for executables.
-
-```sh[]
-$ export PATH=$PATH:/path/to/script
-```
-
-Now you can run the script from anywhere:
+- `-w`: Match whole words.
 
 ```sh
-$ script.sh
+$ grep -w cat file.txt
 ```
 
----
+--
 
-## Summary
+- `-i`: Ignore case.
 
-- **Basic System Management**:
-    - Package management, disk usage, configurations.
-- **File Handling**:
-    - Downloading, searching, opening, editing, outputting files.
-- **Scripting Basics**:
-    - Shell scripts, running scripts, comments, adding scripts to PATH.
+```sh
+$ grep -i -w cat file.txt
+```
 
+--
+
+### Globbing with `grep`
+
+- `grep` can also use glob patterns.
+
+```sh
+$ grep "function" *.js
+```

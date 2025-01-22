@@ -17,6 +17,57 @@
 8. use standard shell tools to troubleshoot operating systems issues and to rectify those issues
     - week 6 (debugging and troubleshooting) and week 12 (scheduled tasks and services)
 
+---
+
+### Themes
+
+**Week 1: File System Navigation**
+- [x] Navigate directories, understand absolute/relative paths, use ls, cd, pwd.
+
+**Week 2: File Operations and Text Editors**
+- Create, edit, and manage files using nano and vim.
+- Introduce echo, cat for viewing and editing files.
+- Basic scripts to automate tasks.
+
+**Week 3: IO Redirection and Pipes**
+- Standard input/output, redirection, and pipes (|).
+- Combine commands and chain operations.
+
+**Week 4: Text Processing**
+• Commands like grep, sed, awk.
+• Introduce regular expressions and refine text searches.
+
+**Week 5: Basic Shell Scripting**
+• Variables, command-line arguments, quoting, and scripting basics.
+• Use scripting to automate text-processing tasks.
+
+**Week 6: Debugging and Troubleshooting**
+• Introduce exit status, error logs, and basic debugging tools like bash -x.
+
+**Week 7: Reading Week**
+• Assign activities to consolidate Weeks 1–6 (e.g., write a script using loops and conditionals).
+
+**Week 8: Conditionals in Scripts**
+• Control flow with if, elif, else, and logical operators (&&, ||).
+
+**Week 9: Loops**
+• Automate repetitive tasks using for and while loops.
+• Introduce looping through files, arguments, and input.
+
+**Week 10: Advanced Scripting Features**
+• Arithmetic operations, environment variables, and command substitution.
+
+**Week 11: User and Resource Management**
+• Manage users, groups, permissions, and disk quotas.
+
+**Week 12: Managing Services and Backups**
+• Automate system tasks with cron, manage services (systemctl), and create backups.
+
+
+**Week 13: Final Integration**
+• Capstone week to integrate all concepts
+
+---
 
 ## Week 1: Introduction to Linux/Unix and File System Navigation
 
@@ -32,43 +83,35 @@
 	- Navigating directories and creating folders.
 	- Familiarization with the terminal.
 
-**Assessment**: Installing Linux – No marks.
+**Assessment**: Installing Linux
+Quiz - 5%.
 
-## Week 2: Setting Up
-
-**Learning Objective Focus**:
-Learn to create, edit and manage files using the command line and text editors.
-Download, install, configure, upgrade, and remove system software packages (Objective 1).
-
+## Week 2: File Operations and Text Editors
 **Lecture Content**:
-    - Package management: 
-        - Installing, updating, removing: apt, yum.
-        - Checking installed packages: which, type.
+    - Getting help with commands: example `echo`
+    - Text files
+    - Viewing files:
+        - cat, less
     - Text editors: nano, vim.
-        - echo, cat.
         - Opening, editing, saving files.
-        - Editing scripts and configuration files.
-    - Downloading files:
-        - wget, curl.
-        - Searching for files: find, locate.
-        - Wildcards/Pattern matching/Globbing.
-    - Disk usage and File Sizes: df, du.
-    - Environment variables: (briefly)
-        - EDITOR, PATH, HOME
-        - Modifying environment variables.
-    - Basic Shell Scripting:
-        - Editing files.
-        - Introduction to scripting.
-        - Running scripts: chmod +x, ./script.sh.
+    - Shell scripts:
+        - Running scripts.
 
-**Lab Exercises**:
-- Task: “Setting Up a Configuration Script”
-	1.	Install vim using apt.
-	2.	Download a sample configuration file using wget.
-	3.	Edit the file to include your name and save it.
-	4.	Create a simple script to print “Setup complete” and save it as setup.sh.
-	5.	Run the script after making it executable.
-	6.	Check disk usage before and after downloading a file.
+**Common commands**:
+- clear, history, cp, mv
+- find
+- grep
+- globbing
+- tab completion
+
+**Lab Demo**: common commands
+
+<!-- **Lab Demo**: -->
+<!--     - Downloading files: -->
+<!--         - wget, curl. -->
+<!--         - Searching for files: find, locate. -->
+<!--         - Wildcards/Pattern matching/Globbing. -->
+<!--     - Submitting assignments to Einstein. -->
 
 **Assessment**: Lab submission – 5%.
 
@@ -80,52 +123,50 @@ Download, install, configure, upgrade, and remove system software packages (Obje
     - Redirection: >, >>, <
     - Pipes: |.
     - Combining commands.
+    <!-- - Examples: Disk usage and File Sizes: df, du. -> use with sort, head, tail. -->
 
-**Lab Exercises**:
-    - Redirect output to a file.
-    - Use pipes to combine commands.
-    - Practice with standard input
+**Common commands**:
+- ps, kill, top
+- wget, sort, cut, uniq
 
-## Week 4: Text Processing and Manipulation
+<!-- **Lab Demo**: -->
 
-**Learning Objective Focus**: Learn to process and manipulate text using standard Unix/Linux commands.
+## Week 4: The Environment
+
 **Lecture Content**:
-    - Text processing: grep, sed, awk, cut, uniq, sort, wc.
-        - Searching for text: grep.
-        - Filtering and Cutting Data: cut (extract columns) and sort
-        - Deduplicating and Counting: uniq, wc.
-        - Editing text: sed.
-        - Manipulating text: awk.
+    - Package management: 
+        - Installing, updating, removing: apt, yum.
+        - Checking installed packages: which, type.
+    - Variables:
+        - Shell variables
+        - Environment variables: (briefly)
+            - EDITOR, PATH, HOME
+            - Modifying environment variables.
     - Regular expressions (to use with grep).
     - More on pipes and redirection.
 
-**Lab Exercises**:
-    - Use grep to search for text.
-    - Use sed to replace text.
-    - Practice with awk to manipulate text.
-    - Combine commands to process text.
+**Common commands**:
+
+<!-- **Lab Demo**: -->
+<!--     - Text processing: grep, sed, awk, cut, uniq, sort, wc. -->
+<!--         - Searching for text: grep. -->
+<!--         - Filtering and Cutting Data: cut (extract columns) and sort -->
+<!--         - Deduplicating and Counting: uniq, wc. -->
+<!--         - Editing text: sed. -->
+<!--         - Manipulating text: awk. -->
 
 **Assessment**: Lab submission – 5%.
 
-## Week 5: Scripting Basics - Variables and Automation
+## Week 5: Basic Shell Scripting
 
 **Learning Objective Focus**: Learn to write basic shell scripts to automate repetitive tasks.
 
 **Lecture Content**:
-    - Variables.
+    <!-- - Variables. -->
     - Command-line arguments.
-    - Example: Automate Package Management with a Script (to review package management).
-    - Special variables.
-    - New-line characters (IFS).
     - Quoting: single, double, backticks, escape.
-    - Read command.
+    - Command substitution.
 
-**Lab Exercises**:
-    - Write a script with variables.
-    - Use command-line arguments in a script.
-    - Practice with special variables.
-    - Use the read command in a script.
-    - Practice with quoting.
 
 **Assessment**: Lab submission – 5%.
 
@@ -133,6 +174,7 @@ Download, install, configure, upgrade, and remove system software packages (Obje
 
 **Learning Objective Focus**: Learn to debug scripts and troubleshoot common issues
 **Lecture Content**:
+    - For loops.
     - Exit status.
     - Error messages.
     - Common script errors.
@@ -199,14 +241,10 @@ Skip
 **Learning Objective Focus**:
 **Lecture Content**:
     - Arithmetic operations: $(( )).
-    - Environment variables.
-    - Export command.
     - Command substitution.
     - Command substitution vs. arithmetic substitution.
 
 **Lab Exercises**:
-    - Write a script with environment variables.
-    - Use the export command.
     - Practice with command substitution.
     - Use arithmetic operations in a script.
 
