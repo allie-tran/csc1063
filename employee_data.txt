@@ -1,0 +1,6 @@
+1 Alice Manager 4500
+2 Bob Engineer 5200
+3 Charlie Accountant 4000
+4 Diana HR 4700
+5 Edward IT 5100
+6 Fiona Designer 3900
