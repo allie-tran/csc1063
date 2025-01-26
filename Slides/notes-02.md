@@ -4,7 +4,7 @@ highlightTheme: css/rose-pine-moon.css
 transition: slide
 duration: 1h
 classSize: ~102
-width: 1920
+width: 1917
 height: 1280
 minScale: -3
 timeForPresentation: 3600
