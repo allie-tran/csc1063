@@ -1,0 +1,55 @@
+24/01/2022	00:00	Have I Got News for You
+24/01/2022	00:30	Asia Business Report
+24/01/2022	00:45	Sport Today
+24/01/2022	01:00	Have I Got News for You
+24/01/2022	01:30	Asia Business Report
+24/01/2022	01:45	Sport Today
+24/01/2022	02:00	BBC World News
+24/01/2022	02:30	Asia Business Report
+24/01/2022	02:45	Sport Today
+24/01/2022	03:00	BBC World News
+24/01/2022	03:30	Wonders of Greece (r)
+24/01/2022	04:00	BBC World News
+24/01/2022	04:30	HARDtalk
+24/01/2022	05:00	BBC World News
+24/01/2022	05:30	World Business Report
+24/01/2022	06:00	BBC World News
+24/01/2022	06:30	World Business Report
+24/01/2022	07:00	BBC World News
+24/01/2022	07:30	BBC World News
+24/01/2022	07:45	World Business Report
+24/01/2022	08:00	BBC World News
+24/01/2022	08:30	Talking Business (r)
+24/01/2022	09:00	BBC World News
+24/01/2022	09:30	HARDtalk (r)
+24/01/2022	10:00	BBC News
+24/01/2022	11:00	Live With Lucy Hockings
+24/01/2022	11:30	World Business Report
+24/01/2022	11:45	Sport Today
+24/01/2022	12:00	Live With Lucy Hockings
+24/01/2022	12:30	Live With Lucy Hockings
+24/01/2022	13:00	Impact with Yalda Hakim
+24/01/2022	13:30	Impact with Yalda Hakim
+24/01/2022	14:00	Impact with Yalda Hakim
+24/01/2022	14:30	World Business Report
+24/01/2022	14:45	Sport Today
+24/01/2022	15:00	Impact with Yalda Hakim
+24/01/2022	15:30	HARDtalk (r)
+24/01/2022	16:00	Global with Matthew Amroliwala
+24/01/2022	16:30	Global with Matthew Amroliwala
+24/01/2022	17:00	Global with Matthew Amroliwala
+24/01/2022	17:30	Focus on Africa
+24/01/2022	18:00	Global with Matthew Amroliwala
+24/01/2022	18:30	HARDtalk (r)
+24/01/2022	19:00	Outside Source
+24/01/2022	19:30	Outside Source
+24/01/2022	20:00	Outside Source
+24/01/2022	20:30	Sport Today
+24/01/2022	21:00	Context
+24/01/2022	21:30	Context
+24/01/2022	22:00	BBC World News America
+24/01/2022	22:30	Asia Business Report
+24/01/2022	22:45	Sport Today
+24/01/2022	23:00	Have I Got News for You
+24/01/2022	23:30	Asia Business Report
+24/01/2022	23:45	Sport Today

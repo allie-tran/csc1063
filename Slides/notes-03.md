@@ -34,6 +34,10 @@ Managing Enterprise Computer Systems
 2) Text files: viewing, and editing with `cat`, `less` and `nano`
 3) Writing shell scripts
 
+--
+
+[Vevox](https://dcu.vevox.com/#/present/700610)
+
 ---
 
 ## Standard Input and Output (I/O)
@@ -69,7 +73,7 @@ Here, is the full explanation of what is happening...
 
 ### Shell and Processes
 
-When you run a command (in the terminal or in a script):
+When you run a command (in the terminal or in a script): [Vevox](https://dcu.vevox.com/#/present/700610)
 
 + **The shell** reads the command,
 + creates a new **process** to run the command,
@@ -209,6 +213,7 @@ are attached to files, and _Einstein_ verifies that your scripts
 produce the expected output.  But -- when writing and testing your scripts
 -- you don't need to be concerned with that, because it just works.
 
+
 ---
 
 ## I/O Redirection
@@ -324,6 +329,10 @@ $ ls -l > files.txt 2>&1
 ```
 
  `2>&1` means "redirect `stderr` to the same place as `stdout`" (must come after `>`).
+
+--
+
+[Vevox](https://dcu.vevox.com/#/present/700610)
 
 --
 
